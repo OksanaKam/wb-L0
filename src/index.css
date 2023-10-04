@@ -1,0 +1,12 @@
+@import url(../src/vendor/normalize.css);
+@import url(../src/vendor/fonts/SegoeUI/segoe.css);
+@import url(../src/blocks/page/page.css);
+@import url(../src/blocks/header/header.css);
+@import url(../src/blocks/content/content.css);
+@import url(../src/blocks/basket/basket.css);
+@import url(../src/blocks/footer/footer.css);
+@import url(../src/blocks/popup/popup.css);
+
+body {
+    margin: 0;
+}
