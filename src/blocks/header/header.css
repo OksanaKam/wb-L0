@@ -42,7 +42,7 @@
 .header__title {
   max-width: 106px;
   width: 100%;
-  margin: 0;
+  margin: -2px 0 0;
   padding: 0;
   color: #FFFFFF;
   font-size: 28px;

@@ -14,7 +14,10 @@ import { params,
          goodsTitleSummary,
          goodsOutContent,
          buttonDeliveryChange,
-         buttonTotalDeliveryChange } from './utils/constants';
+         buttonTotalDeliveryChange,
+         buttonPaymentChange,
+         buttonTotalPaymentChange
+} from './utils/constants';
 import { PopupInfo } from './components/PopupInfo';
 
 // добавление пробелов в номере телефона
@@ -60,6 +63,18 @@ buttonDeliveryChange.addEventListener('click', () => {
 
 buttonTotalDeliveryChange.addEventListener('click', () => {
   popupDeliveryInfo.open();
+});
+
+// открытие попапа информации о способе оплаты
+const popupPaymentInfo = new PopupInfo('.popup_type_payment');
+popupPaymentInfo.setEventListeners();
+
+buttonPaymentChange.addEventListener('click', () => {
+  popupPaymentInfo.open();
+});
+
+buttonTotalPaymentChange.addEventListener('click', () => {
+  popupPaymentInfo.open();
 });
 
 // скрытие и открытие секции по кнопке скрыть

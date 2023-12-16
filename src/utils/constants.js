@@ -21,3 +21,5 @@ export const sectionChoose = document.querySelector('.basket__goods-choose_type_
 export const goodsTitleSummary = document.querySelector('.basket__goods-summary');
 export const buttonDeliveryChange = document.querySelector('.goods-delivery__change');
 export const buttonTotalDeliveryChange = document.querySelector('.basket__delivery-edit');
+export const buttonPaymentChange = document.querySelector('.goods-payment__change');
+export const buttonTotalPaymentChange = document.querySelector('.basket__payment-edit');
