@@ -998,27 +998,6 @@
 }
 
 @media screen and (max-width: 1000px) {
-
-  .basket__goods-recipient {
-    align-items: center;
-    gap: 8px;
-  }
-
-  .basket__goods-form {
-    gap: 13px;
-  }
-
-  .basket__goods-fieldset {
-    flex-direction: column;
-    gap: 13px;
-  }
-
-  .basket__goods-field_type_short {
-    width: 283px;
-  }
-}
-
-@media screen and (max-width: 827px) {
   .basket {
     padding: 0 0 14px;
     flex-direction: column;
@@ -1266,6 +1245,15 @@
     flex-direction: row;
     gap: 12px;
     align-items: center;
+  }
+
+  .basket__goods-form {
+    gap: 13px;
+  }
+
+  .basket__goods-fieldset {
+    flex-direction: column;
+    gap: 13px;
   }
 
   .basket__goods-recipient {

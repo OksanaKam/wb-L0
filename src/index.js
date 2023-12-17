@@ -16,8 +16,11 @@ import { params,
          buttonDeliveryChange,
          buttonTotalDeliveryChange,
          buttonPaymentChange,
-         buttonTotalPaymentChange
+         buttonTotalPaymentChange,
+         selectAllCheckbox,
+         goodsCheckboxes
 } from './utils/constants';
+import { initialCards } from './utils/data';
 import { PopupInfo } from './components/PopupInfo';
 
 // добавление пробелов в номере телефона
@@ -36,6 +39,19 @@ buyerFormValidator.enableValidation();
 buttonSubmit.addEventListener('click', () => {
   buyerFormValidator.enableValidation();
 });
+
+// изменение суммы товаров
+
+totalSum.innerHTML = goodsCheckboxes.checked;
+
+const price = document.querySelectorAll('#sum');
+console.log(price.innerText);
+
+const goodsSum = price.forEach(function(sum) {
+  console.log(parseInt(sum.innerText));
+});
+
+console.log(goodsSum);
 
 // изменение текста кнопки
 let sum = totalSum.innerHTML
@@ -102,3 +118,23 @@ buttonSectionOutHide.addEventListener('click', () => {
   }
 });
 
+// установка свойства checked
+
+const toggleSelectAllCheckbox = () => {
+  const areAllChecked = [...goodsCheckboxes].every((c) => c.checked === true);
+  goodsCheckboxes.forEach((c) => {
+    c.checked = !areAllChecked;
+  });
+  selectAllCheckbox.checked = !areAllChecked;
+}
+
+selectAllCheckbox.addEventListener('click', toggleSelectAllCheckbox);
+
+const toggleGoodsCheckbox = () => {
+  const areAllChecked = [...goodsCheckboxes].every((c) => c.checked === true);
+  selectAllCheckbox.checked = areAllChecked;
+}
+
+goodsCheckboxes.forEach((c) => {
+  c.addEventListener('click', toggleGoodsCheckbox);
+})

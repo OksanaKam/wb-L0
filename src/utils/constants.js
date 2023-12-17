@@ -23,3 +23,5 @@ export const buttonDeliveryChange = document.querySelector('.goods-delivery__cha
 export const buttonTotalDeliveryChange = document.querySelector('.basket__delivery-edit');
 export const buttonPaymentChange = document.querySelector('.goods-payment__change');
 export const buttonTotalPaymentChange = document.querySelector('.basket__payment-edit');
+export const selectAllCheckbox = document.getElementById('checkbox-all');
+export const goodsCheckboxes = document.querySelectorAll('.basket__goods-checkbox_margin_twelve');
