@@ -18,10 +18,15 @@ import { params,
          buttonPaymentChange,
          buttonTotalPaymentChange,
          selectAllCheckbox,
-         goodsCheckboxes
+         goodsCheckboxes,
+         goods,
+         template,
+         price
 } from './utils/constants';
 import { initialCards } from './utils/data';
 import { PopupInfo } from './components/PopupInfo';
+
+console.log(goods);
 
 // добавление пробелов в номере телефона
 phoneInput.addEventListener('keyup', (event) => {
@@ -42,16 +47,13 @@ buttonSubmit.addEventListener('click', () => {
 
 // изменение суммы товаров
 
-totalSum.innerHTML = goodsCheckboxes.checked;
+// totalSum.innerHTML = goodsCheckboxes.checked;
 
-const price = document.querySelectorAll('#sum');
-console.log(price.innerText);
-
+/*
 const goodsSum = price.forEach(function(sum) {
-  console.log(parseInt(sum.innerText));
+  console.log(parseInt(sum.textContent));
 });
-
-console.log(goodsSum);
+*/
 
 // изменение текста кнопки
 let sum = totalSum.innerHTML
@@ -59,6 +61,68 @@ paymentCheckbox.addEventListener('change', () => {
     buttonSubmit.textContent = paymentCheckbox.checked ? `Оплатить ${sum} сом` : 'Заказать';
 });
 
+// отображение карточек товара
+
+const renderCards = () => {
+  const cards = initialCards.map(createGood);
+  goods.append(...cards);
+}
+
+renderCards();
+
+function createGood(item) {
+
+  const goodElement = template.cloneNode(true);
+  const goodName = goodElement.querySelector('.basket__goods-name');
+  const goodImage = goodElement.querySelector('.basket__goods-image')
+  const goodColor = goodElement.querySelector('.basket__goods-color');
+  const goodSize = goodElement.querySelector('.basket__goods-size');
+  const goodWarehouse = goodElement.querySelector('.basket__goods-warehouse');
+  const goodCompany = goodElement.querySelector('.basket__goods-company');
+  const goodCount = goodElement.querySelector('.basket__goods-number');
+  const goodPrice = goodElement.querySelector('.basket__goods-price');
+  const goodOldPrice = goodElement.querySelector('.basket__goods-stroke');
+  const goodLimit = goodElement.querySelector('.basket__goods-limit');
+  const goodButtonMinus = goodElement.querySelector('.basket__goods-minus');
+
+  goodName.textContent = item.name;
+  goodImage.src = item.image;
+  goodImage.alt = item.name;
+  goodColor.textContent = item.color;
+  goodSize.textContent = item.size;
+  goodWarehouse.textContent = item.warehouse;
+  goodCompany.textContent = item.company;
+  goodCount.value = item.count;
+  goodPrice.textContent = goodCount.value * item.price;
+  goodOldPrice.textContent = `${item.old_price} com`;
+
+  goodButtonMinus.addEventListener('click', function() {
+    if (goodCount.value <= 1) {
+      goodCount.value = 0;
+    } else {
+      goodCount.value--;
+    }
+  });
+
+  goodElement.querySelector('.basket__goods-plus').addEventListener('click', function() {
+    if (goodCount.value >= item.limit) {
+      goodCount.value = item.limit;
+    } else {
+      goodCount.value++;
+    }
+  });
+
+  if (item.limit >= 2) {
+    goodLimit.textContent = `Осталось ${item.limit} шт.`
+  };
+
+  return goodElement;
+}
+
+const setCount = (e) => {
+  let value = e.value
+}
+/*
 // откpытие попапа информации о компании
 const popupCompanyInfo = new PopupInfo('.popup_type_company');
 popupCompanyInfo.setEventListeners();
@@ -68,7 +132,7 @@ companyInfo.forEach(function(button) {
     popupCompanyInfo.open();
   });
 });
-
+*/
 // открытие попапа информации о доставкe
 const popupDeliveryInfo = new PopupInfo('.popup_type_delivery');
 popupDeliveryInfo.setEventListeners();
@@ -138,3 +202,4 @@ const toggleGoodsCheckbox = () => {
 goodsCheckboxes.forEach((c) => {
   c.addEventListener('click', toggleGoodsCheckbox);
 })
+

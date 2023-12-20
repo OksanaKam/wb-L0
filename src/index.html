@@ -44,145 +44,54 @@
             <button class="basket__goods-hide basket__goods-hide_type_stock" type="button" aria-label="Скрыть"></button>
           </div>
           <ul class="basket__goods-content basket__goods-content_type_stock">
-            <li class="basket__goods-element">
-              <div class="basket__goods-kit">
-                <div class="basket__goods-choose basket__goods-choose_type_goods">
-                  <input class="basket__goods-checkbox basket__goods-checkbox_margin_twelve" id="checkbox-goods1" type="checkbox" checked>
-                  <img class="basket__goods-image" src="<%=require('./images/Frame-3853-2x.jpg')%>" alt="футболка">
-                </div>
-                <div class="basket__goods-about basket__goods-about_block_stock">
-                  <div class="basket__goods-prices basket__goods-prices_screen_mobile">
-                    <p class="basket__goods-price" id="sum">522<span class="basket__goods-words basket__goods-words_color_black basket__goods-words_align_right"> сом</span></p>
-                    <span class="basket__goods-old basket__goods-text basket__goods-text_color_gray">
-                      <span class="basket__goods-stroke">1051 сом</span>
-                    </span>
+            <template id="good">
+              <li class="basket__goods-element basket__goods-element_type_stock">
+                <div class="basket__goods-kit">
+                  <div class="basket__goods-choose basket__goods-choose_type_goods">
+                    <input class="basket__goods-checkbox basket__goods-checkbox_margin_twelve" id="checkbox-goods1" type="checkbox" checked>
+                    <img class="basket__goods-image">
                   </div>
-                  <h3 class="basket__goods-name">Футболка UZcotton мужская</h3>
-                  <div class="basket__goods-property">
-                    <p class="basket__goods-text basket__goods-text_color_black">Цвет: белый</p>
-                    <p class="basket__goods-text basket__goods-text_color_black basket__desktop_active">Размер: 56</p>
-                  </div>
-                  <span class="basket__goods-warehouse basket__goods-text basket__goods-text_color_gray">Коледино WB</span>
-                  <div class="basket__goods-business basket__desktop_active">
-                    <span class="basket__goods-text basket__goods-text_color_gray">OOO Вайлдберриз</span>
-                    <button class="basket__goods-data" type="button" aria-label="Информация"></button>
-                  </div>
-                </div>
-              </div>
-              <div class="basket__goods-kit">
-                <div class="basket__goods-volume basket__goods-volume_type_stock">
-                  <div class="basket__goods-count">
-                    <button class="basket__goods-minus" type="button"aria-label="Уменьшить">&minus;</button>
-                    <input class="basket__goods-number basket__goods-name" type="number" id="goods-number" name="goods-number" value="1" minlength="1" maxlength="3" autocomplete="off">
-                    <button class="basket__goods-plus basket__goods-plus_active" type="button" aria-label="Добавить">+</button>
-                  </div>
-                  <span class="basket__goods-text basket__goods-text_color_orange">Осталось 2 шт.</span>
-                  <div class="basket__goods-icons basket__goods-icons_type_stock">
-                    <button class="basket__goods-like" type="button" aria-label="Нравится"></button>
-                    <button class="basket__goods-trash" type="button" aria-label="Корзина"></button>
-                  </div>
-                </div>
-                <div class="basket__goods-prices basket__goods-prices_screen_desktop">
-                  <p class="basket__goods-price">522<span class="basket__goods-words basket__goods-words_color_black basket__goods-words_align_right"> сом</span></p>
-                  <span class="basket__goods-old basket__goods-text basket__goods-text_color_gray">
-                    <span class="basket__goods-stroke">1051 сом</span>
-                  </span>
-                </div>
-              </div>
-            </li>
-            <li class="basket__goods-element">
-              <div class="basket__goods-kit">
-                <div class="basket__goods-choose basket__goods-choose_type_goods">
-                  <input class="basket__goods-checkbox basket__goods-checkbox_margin_twelve" id="checkbox-goods2" type="checkbox" checked>
-                  <img class="basket__goods-image" src="<%=require('./images/Frame-277132129-2k.jpg')%>" alt="силиконовый чехол">
-                </div>
-                <div class="basket__goods-about basket__goods-about_block_stock">
-                  <div class="basket__goods-prices basket__goods-prices_screen_mobile">
-                    <p class="basket__goods-words basket__goods-words_align_left" id="sum">2 100 047 сом</p>
-                    <span class="basket__goods-old basket__goods-text basket__goods-text_color_gray">
-                      <span class="basket__goods-stroke">2 300 047 сом</span>
-                    </span>
-                  </div>
-                  <h3 class="basket__goods-name">Силиконовый чехол картхолдер (отверстия) для карт, прозрачный кейс бампер на Apple iPhone XR, MobiSafe</h3>
-                  <div class="basket__goods-property">
-                    <p class="basket__goods-text basket__goods-text_color_black">Цвет: прозрачный</p>
-                  </div>
-                  <span class="basket__goods-warehouse basket__goods-text basket__goods-text_color_gray">Коледино WB</span>
-                  <div class="basket__goods-business basket__desktop_active">
-                    <span class="basket__goods-text basket__goods-text_color_gray">OOO Мегапрофстиль</span>
-                    <button class="basket__goods-data" type="button" aria-label="Информация"></button>
-                    <div class="popup popup_type_company">
-                      <div class="popup__container-company">
-                        <h3 class="popup__company-title">OOO «МЕГАПРОФСТИЛЬ»</h3>
-                        <p class="popup__company-text">ОГРН: 5167746237148</p>
-                        <p class="popup__company-text">129337, Москва, улица Красная Сосна, 2, корпус 1, стр. 1, помещение 2, офис 34</p>
-                      </div>
+                  <div class="basket__goods-about basket__goods-about_block_stock">
+                    <div class="basket__goods-prices basket__goods-prices_screen_mobile">
+                      <p class="basket__goods-price_screen_mobile"><span class="basket__goods-words basket__goods-words_color_black basket__goods-words_align_right"> сом</span></p>
+                      <span class="basket__goods-old basket__goods-text basket__goods-text_color_gray">
+                        <span class="basket__goods-stroke_screen_mobile"></span>
+                      </span>
+                    </div>
+                    <h3 class="basket__goods-name"></h3>
+                    <div class="basket__goods-property">
+                      <p class="basket__goods-text basket__goods-text_color_black basket__goods-color"></p>
+                      <p class="basket__goods-text basket__goods-text_color_black basket__desktop_active basket__goods-size"></p>
+                    </div>
+                    <span class="basket__goods-warehouse basket__goods-text basket__goods-text_color_gray"></span>
+                    <div class="basket__goods-business basket__desktop_active">
+                      <span class="basket__goods-text basket__goods-text_color_gray basket__goods-company"></span>
+                      <button class="basket__goods-data" type="button" aria-label="Информация"></button>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="basket__goods-kit">
-                <div class="basket__goods-volume basket__goods-volume_type_stock">
-                  <div class="basket__goods-count">
-                    <button class="basket__goods-minus basket__goods-minus_active" type="button" aria-label="Уменьшить">&minus;</button>
-                    <input class="basket__goods-number basket__goods-name" type="number" id="goods-number" name="goods-number" value="200" minlength="1" maxlength="3">
-                    <button class="basket__goods-plus basket__goods-plus_active" type="button" aria-label="Добавить">+</button>
+                <div class="basket__goods-kit">
+                  <div class="basket__goods-volume basket__goods-volume_type_stock">
+                    <div class="basket__goods-count">
+                      <button class="basket__goods-minus" type="button"aria-label="Уменьшить">&minus;</button>
+                      <input class="basket__goods-number basket__goods-name" type="number" id="goods-number" name="goods-number" value="" minlength="1" maxlength="3" autocomplete="off">
+                      <button class="basket__goods-plus basket__goods-plus_active" type="button" aria-label="Добавить">+</button>
+                    </div>
+                    <span class="basket__goods-text basket__goods-text_color_orange basket__goods-limit"></span>
+                    <div class="basket__goods-icons basket__goods-icons_type_stock">
+                      <button class="basket__goods-like" type="button" aria-label="Нравится"></button>
+                      <button class="basket__goods-trash" type="button" aria-label="Корзина"></button>
+                    </div>
                   </div>
-                  <div class="basket__goods-icons basket__goods-icons_type_stock">
-                    <button class="basket__goods-like" type="button" aria-label="Нравится"></button>
-                    <button class="basket__goods-trash" type="button" aria-label="Корзина"></button>
-                  </div>
-                </div>
-                <div class="basket__goods-prices basket__goods-prices_screen_desktop">
-                  <p class="basket__goods-words basket__goods-words_align_right">2 100 047<span class="basket__goods-words basket__goods-words_color_black basket__goods-words_align_right"> сом</span></p>
-                  <span class="basket__goods-old basket__goods-text basket__goods-text_color_gray">
-                    <span class="basket__goods-stroke">2 300 047 сом</span>
-                  </span>
-                </div>
-              </div>
-            </li>
-            <li class="basket__goods-element">
-              <div class="basket__goods-kit">
-                <div class="basket__goods-choose basket__goods-choose_type_goods">
-                  <input class="basket__goods-checkbox basket__goods-checkbox_margin_twelve" id="checkbox-goods3" type="checkbox" checked>
-                <img class="basket__goods-image" src="<%=require('./images/Frame-277132129k-2x.jpg')%>" alt="карандаши">
-                </div>
-                <div class="basket__goods-about basket__goods-about_block_stock">
-                  <div class="basket__goods-prices basket__goods-prices_screen_mobile">
-                    <p class="basket__goods-price" id="sum">494<span class="basket__goods-words basket__goods-words_color_black basket__goods-words_align_right"> сом</span></p>
+                  <div class="basket__goods-prices basket__goods-prices_screen_desktop">
+                    <p class="basket__goods-price"><span class="basket__goods-words basket__goods-words_color_black basket__goods-words_align_right"> сом</span></p>
                     <span class="basket__goods-old basket__goods-text basket__goods-text_color_gray">
-                      <span class="basket__goods-stroke">950 сом</span>
+                      <span class="basket__goods-stroke"></span>
                     </span>
                   </div>
-                  <h3 class="basket__goods-name">Карандаши цветные Faber-Castell "Замок", набор 24 цвета, заточенные, шестигранные, Faber-Castell</h3>
-                  <span class="basket__goods-warehouse basket__goods-text basket__goods-text_color_gray">Коледино WB</span>
-                  <div class="basket__goods-business basket__desktop_active">
-                    <span class="basket__goods-text basket__goods-text_color_gray">OOO Вайлдберриз</span>
-                    <button class="basket__goods-data" type="button" aria-label="Информация"></button>
-                  </div>
                 </div>
-              </div>
-              <div class="basket__goods-kit">
-                <div class="basket__goods-volume basket__goods-volume_type_stock">
-                  <div class="basket__goods-count">
-                    <button class="basket__goods-minus basket__goods-minus_active" type="button" aria-label="Уменьшить">&minus;</button>
-                    <input class="basket__goods-number basket__goods-name" type="number" id="goods-number" name="goods-number" value="2" minlength="1" maxlength="3">
-                    <button class="basket__goods-plus" type="button" aria-label="Добавить">+</button>
-                  </div>
-                  <span class="basket__goods-text basket__goods-text_color_orange">Осталось 2 шт.</span>
-                  <div class="basket__goods-icons basket__goods-icons_type_stock">
-                    <button class="basket__goods-like" type="button" aria-label="Нравится"></button>
-                    <button class="basket__goods-trash" type="button" aria-label="Корзина"></button>
-                  </div>
-                </div>
-                <div class="basket__goods-prices basket__goods-prices_screen_desktop">
-                  <p class="basket__goods-price">494<span class="basket__goods-words basket__goods-words_color_black basket__goods-words_align_right"> сом</span></p>
-                  <span class="basket__goods-old basket__goods-text basket__goods-text_color_gray">
-                    <span class="basket__goods-stroke">950 сом</span>
-                  </span>
-                </div>
-              </div>
-            </li>
+              </li>
+            </template>
           </ul>
           <div class="basket__goods-out">
             <p class="basket__goods-subtitle">Отсутствуют · 3 товара</p>
