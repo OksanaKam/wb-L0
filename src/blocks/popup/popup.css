@@ -16,9 +16,9 @@
 }
 
 .popup_type_company {
-  position: absolute;
-  top: 24px;
-  left: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
 }
 
 .popup_type_delivery {

@@ -13,7 +13,8 @@ export const initialCards = [
     count: 1,
     limit: 2,
     price: 522,
-    old_price: 1051
+    old_price: 1051,
+    checked: true
   },
   {
     name: 'Силиконовый чехол картхолдер (отверстия) для карт, прозрачный кейс бампер на Apple iPhone XR, MobiSafe',
@@ -23,8 +24,9 @@ export const initialCards = [
     company: 'OOO Мегапрофстиль',
     image: phoneCase,
     count: 200,
-    price: 10500.24,
-    old_price: 11500.24
+    price: 10500.235,
+    old_price: 11500.235,
+    checked: true
   },
   {
     name: 'Карандаши цветные Faber-Castell "Замок", набор 24 цвета, заточенные, шестигранные, Faber-Castell',
@@ -33,9 +35,10 @@ export const initialCards = [
     warehouse: 'Коледино WB',
     company: 'OOO Вайлдберриз',
     image: pencils,
-    count: 1,
+    count: 2,
     limit: 2,
     price: 247,
-    old_price: 475
+    old_price: 475,
+    checked: true
   }
 ]

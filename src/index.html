@@ -48,7 +48,7 @@
               <li class="basket__goods-element basket__goods-element_type_stock">
                 <div class="basket__goods-kit">
                   <div class="basket__goods-choose basket__goods-choose_type_goods">
-                    <input class="basket__goods-checkbox basket__goods-checkbox_margin_twelve" id="checkbox-goods1" type="checkbox" checked>
+                    <input class="basket__goods-checkbox basket__goods-checkbox_margin_twelve" type="checkbox" checked>
                     <img class="basket__goods-image">
                   </div>
                   <div class="basket__goods-about basket__goods-about_block_stock">
@@ -73,7 +73,7 @@
                 <div class="basket__goods-kit">
                   <div class="basket__goods-volume basket__goods-volume_type_stock">
                     <div class="basket__goods-count">
-                      <button class="basket__goods-minus" type="button"aria-label="Уменьшить">&minus;</button>
+                      <button class="basket__goods-minus basket__goods-minus_active" type="button"aria-label="Уменьшить">&minus;</button>
                       <input class="basket__goods-number basket__goods-name" type="number" id="goods-number" name="goods-number" value="" minlength="1" maxlength="3" autocomplete="off">
                       <button class="basket__goods-plus basket__goods-plus_active" type="button" aria-label="Добавить">+</button>
                     </div>
@@ -265,17 +265,17 @@
             <div class="basket__whole-group">
               <h2 class="basket__whole-title">Итого</h1>
               <div>
-                <span class="basket__whole-sum">2 101 063</span>
+                <span class="basket__whole-sum"></span>
                 <span class="basket__whole-currency"> сом</span>
               </div>
             </div>
             <div class="basket__whole-group">
-              <span class="basket__whole-text">203 товара</span>
-              <span class="basket__whole-text">2 302 048 сом</span>
+              <span class="basket__whole-text basket__whole-count"></span>
+              <span class="basket__whole-text basket__whole-old"></span>
             </div>
             <div class="basket__whole-group">
               <span class="basket__whole-text">Скидка</span>
-              <span class="basket__whole-text">−200 985 сом</span>
+              <span class="basket__whole-text basket__whole-discount"></span>
             </div>
             <div class="basket__whole-group">
               <span class="basket__whole-text">Доставка</span>
@@ -437,6 +437,13 @@
           </div>
           <button class="popup__payment-submit" type="submit" aria-label="Выбрать">Выбрать</button>
         </form>
+      </div>
+    </div>
+    <div class="popup popup_type_company">
+      <div class="popup__container-company">
+        <h3 class="popup__company-title">OOO «МЕГАПРОФСТИЛЬ»</h3>
+        <p class="popup__company-text">ОГРН: 5167746237148</p>
+        <p class="popup__company-text">129337, Москва, улица Красная Сосна, 2, корпус 1, стр. 1, помещение 2, офис 34</p>
       </div>
     </div>
   </div>

@@ -12,6 +12,9 @@ export const formBuyer = document.querySelector('.basket__form');
 export const phoneInput = document.querySelector('.basket__input_name_phone');
 export const paymentCheckbox = document.querySelector('#checkbox-payment');
 export const totalSum = document.querySelector('.basket__whole-sum');
+export const totalCount = document.querySelector('.basket__whole-count');
+export const totalOldSum = document.querySelector('.basket__whole-old');
+export const totalDiscount = document.querySelector('.basket__whole-discount');
 export const companyInfo = document.querySelectorAll('.basket__goods-data');
 export const buttonSectionStockHide = document.querySelector('.basket__goods-hide_type_stock');
 export const buttonSectionOutHide = document.querySelector('.basket__goods-hide_type_out');
@@ -27,3 +30,4 @@ export const selectAllCheckbox = document.getElementById('checkbox-all');
 export const goodsCheckboxes = document.querySelectorAll('.basket__goods-checkbox_margin_twelve');
 export const goods = document.querySelector('.basket__goods-content_type_stock');
 export const template = document.querySelector('#good').content.querySelector('.basket__goods-element_type_stock');
+
