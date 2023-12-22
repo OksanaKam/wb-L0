@@ -1,13 +1,11 @@
 {
   "name": "goods",
   "version": "1.0.0",
-  "homepage": "https://oksanakam.github.io/wb-L0/",
   "description": "Goods and point",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "dev": "webpack serve",
-    "deploy": "gh-pages -d dist"
+    "dev": "webpack serve"
   },
   "keywords": [],
   "author": "OksanaKam",
