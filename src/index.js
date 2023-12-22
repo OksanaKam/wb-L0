@@ -9,7 +9,6 @@ import { params,
          totalCount,
          totalOldSum,
          totalDiscount,
-         companyInfo,
          buttonSectionStockHide,
          buttonSectionOutHide,
          goodsContent,
@@ -23,9 +22,15 @@ import { params,
          selectAllCheckbox,
          goodsCheckboxes,
          goods,
-         template
+         templateGood,
+         summary,
+         paymentCard,
+         templatePaymentCard,
+         paymentCards,
+         paymentCardNumber,
+         paymentCardImage
 } from './utils/constants';
-import { initialCards } from './utils/data';
+import { initialCards, paymentCardsArray } from './utils/data';
 import { Popup } from './components/Popup';
 
 // добавление пробелов в номере телефона
@@ -45,11 +50,7 @@ buttonSubmit.addEventListener('click', () => {
   buyerFormValidator.enableValidation();
 });
 
-// откpытие попапа информации о компании
-const popupCompanyInfo = new Popup('.popup_type_company');
-popupCompanyInfo.setEventListeners();
-
-// изменение данных блока Итого
+// изменение данных блока Итого и summary
 const countTotal = () => {
   const sum = initialCards.reduce((prev, item) => {
     return item.checked ? prev + (item.count * item.price) : prev;
@@ -66,13 +67,13 @@ const countTotal = () => {
   totalCount.innerHTML = `${parseInt(count).toLocaleString()} товара`;
   totalOldSum.innerHTML = `${parseInt(oldSum).toLocaleString()} com`;
   totalDiscount.innerHTML = `- ${parseInt(discount).toLocaleString()} com`;
-
+  summary.innerHTML = `${parseInt(count).toLocaleString()} товара · ${parseInt(sum).toLocaleString()} com`;
 }
 
 countTotal();
 
 // изменение текста кнопки
-let sum = totalSum.innerHTML
+let sum = totalSum.innerText
 paymentCheckbox.addEventListener('change', () => {
     buttonSubmit.textContent = paymentCheckbox.checked ? `Оплатить ${sum} сом` : 'Заказать';
 });
@@ -87,7 +88,7 @@ renderCards();
 
 function createGood(item) {
 
-  const goodElement = template.cloneNode(true);
+  const goodElement = templateGood.cloneNode(true);
   const goodName = goodElement.querySelector('.basket__goods-name');
   const goodImage = goodElement.querySelector('.basket__goods-image')
   const goodColor = goodElement.querySelector('.basket__goods-color');
@@ -100,7 +101,6 @@ function createGood(item) {
   const goodLimit = goodElement.querySelector('.basket__goods-limit');
   const goodButtonPlus = goodElement.querySelector('.basket__goods-plus');
   const goodButtonMinus = goodElement.querySelector('.basket__goods-minus');
-  const goodCompanyInfo = goodElement.querySelector('.basket__goods-data');
   const goodCheckbox = goodElement.querySelector('.basket__goods-checkbox_margin_twelve');
 
   goodName.textContent = item.name;
@@ -122,6 +122,7 @@ function createGood(item) {
       goodButtonMinus.setAttribute('disabled', true);
     } else {
       goodButtonMinus.classList.add('basket__goods-minus_active');
+      goodButtonMinus.removeAttribute('disabled');
     }
 
     if (item.count === item.limit) {
@@ -129,6 +130,7 @@ function createGood(item) {
       goodButtonPlus.setAttribute('disabled', true);
     } else {
       goodButtonPlus.classList.add('basket__goods-plus_active');
+      goodButtonPlus.removeAttribute('disabled');
     }
 
   }
@@ -152,12 +154,7 @@ function createGood(item) {
     goodLimit.textContent = `Осталось ${item.limit} шт.`
   };
 
-  goodCompanyInfo.addEventListener('mouseover', () => {
-    popupCompanyInfo.open();
-  });
-
   // установка свойства checked
-
   const toggleSelectAllCheckbox = () => {
     const areAllChecked = goodCheckbox.checked === true;
     goodCheckbox.checked = !areAllChecked;
@@ -167,8 +164,10 @@ function createGood(item) {
   selectAllCheckbox.addEventListener('click', () => {
     if (selectAllCheckbox.checked) {
       selectAllCheckbox.checked = false;
+      item.checked = true;
     } else {
       selectAllCheckbox.checked = true;
+      item.checked = false;
     }
     console.log(selectAllCheckbox);
     toggleSelectAllCheckbox();
@@ -204,6 +203,49 @@ buttonDeliveryChange.addEventListener('click', () => {
 buttonTotalDeliveryChange.addEventListener('click', () => {
   popupDeliveryInfo.open();
 });
+
+// отображение способа оплаты
+const showPaymentCard = () => {
+  const card = paymentCardsArray.find(element => element.checked === true);
+
+  paymentCardNumber.textContent = card.number;
+  paymentCardImage.src = card.image;
+  paymentCardImage.alt = card.number;
+
+}
+
+showPaymentCard()
+
+// отображение информации о способе оплаты в попапе
+const renderPaymentCards = () => {
+  const cards = paymentCardsArray.map(createPaymentCard);
+  paymentCards.append(...cards);
+}
+
+renderPaymentCards();
+
+function createPaymentCard(item) {
+
+  const paymentCardElement = templatePaymentCard.cloneNode(true);
+  const cardImage = paymentCardElement.querySelector('.popup__payment-image');
+  const cardNumber = paymentCardElement.querySelector('.popup__payment-text')
+  const cardRadio = paymentCardElement.querySelector('.popup__radio-payment');
+
+  cardNumber.textContent = item.number;
+  cardImage.src = item.image;
+  cardImage.alt = item.number;
+  cardRadio.checked = item.checked;
+
+  cardRadio.addEventListener('change', () => {
+    paymentCardsArray.forEach((card) => {
+      card.checked = false;
+    })
+    item.checked = true;
+    showPaymentCard();
+  })
+
+  return paymentCardElement;
+}
 
 // открытие попапа информации о способе оплаты
 const popupPaymentInfo = new Popup('.popup_type_payment');
@@ -241,24 +283,4 @@ buttonSectionOutHide.addEventListener('click', () => {
     goodsOutContent.classList.add('basket__goods-content_unactive');
   }
 });
-/*
-// установка свойства checked
-const toggleSelectAllCheckbox = () => {
-  const areAllChecked = [...goodsCheckboxes].every((c) => c.checked === true);
-  goodsCheckboxes.forEach((c) => {
-    c.checked = !areAllChecked;
-  });
-  selectAllCheckbox.checked = !areAllChecked;
-}
 
-selectAllCheckbox.addEventListener('click', toggleSelectAllCheckbox);
-
-const toggleGoodsCheckbox = () => {
-  const areAllChecked = [...goodsCheckboxes].every((c) => c.checked === true);
-  selectAllCheckbox.checked = areAllChecked;
-}
-
-goodsCheckboxes.forEach((c) => {
-  c.addEventListener('click', toggleGoodsCheckbox);
-})
-*/

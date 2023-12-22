@@ -1,6 +1,10 @@
 import tShort from '../images/Frame-3853-2x.jpg';
 import phoneCase from '../images/Frame-277132129-2k.jpg';
 import pencils from '../images/Frame-277132129k-2x.jpg';
+import mir from '../images/mir.svg';
+import visa from '../images/visa.svg';
+import mastercard from '../images/mastercard.svg';
+import maestro from '../images/maestro.svg';
 
 export const initialCards = [
   {
@@ -41,4 +45,50 @@ export const initialCards = [
     old_price: 475,
     checked: true
   }
+]
+
+export const addresses = [
+  {
+    address: 'Бишкек, улица Ахматбека Суюмбаева, 12/1',
+    checked: true
+  },
+  {
+    address: 'Бишкек, улица Табышалиева, 57',
+    checked: false
+  },
+  {
+    address: 'Бишкек, улица Жукеева-Пудовкина, 77/1',
+    checked: false
+  },
+  {
+    address: 'Бишкек, микрорайон Джал, улица Ахунбаева Исы, 67/1',
+    checked: false
+  }
+]
+
+export const paymentCardsArray = [
+  {
+    image: mir,
+    number: '1234 56•• •••• 1234',
+    value: 'mir',
+    checked: true
+  },
+  {
+    image: visa,
+    number: '1234 56•• •••• 1234',
+    value: 'visa',
+    checked: false
+  },
+  {
+    image: mastercard,
+    number: '1234 56•• •••• 1234',
+    value: 'mastercard',
+    checked: false
+  },
+  {
+    image: maestro,
+    number: '1234 56•• •••• 1234',
+    value: 'maestro',
+    checked: false
+  },
 ]
