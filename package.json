@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Goods and point",
   "main": "index.js",
+  "homepage": "https://oksanakam.github.io/wb-L0/",
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack serve",
