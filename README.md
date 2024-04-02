@@ -26,6 +26,6 @@ JavaScript
 
 Ссылка на макет в Figma https://www.figma.com/file/ljSOm8913NJ9eZxR9n0RRb/%D0%94%D0%BB%D1%8F-%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F?node-id=0%3A1
 
-### Github Pages
+### Deploy
 
-https://oksanakam.github.io/wb-L0/
+https://wb-l0-gamma.vercel.app
